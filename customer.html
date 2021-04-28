@@ -1,0 +1,70 @@
+{%  extends 'accounts/main.html' %}
+
+{% block content %}
+
+	<br>
+
+<div class="row">
+	<div class="col-md">
+		<div class="card card-body">
+			<h5>Student:{{customer.name}}</h5>
+			<hr>
+			<br>
+			<a class="btn btn-outline-info  btn-sm btn-block" href="{% url 'create_order' customer.id %}">Place Request</a>
+			<br>
+
+		</div>
+	</div>
+
+	<div class="col-md">
+		<div class="card card-body">
+			<h5>Contact Information</h5>
+			<hr>
+			<p>Email: {{customer.email}}</p>
+			<p>Registration Number: {{customer.phone}}</p>
+		</div>
+	</div>
+
+	<div class="col-md">
+		<div class="card card-body">
+			<h5>Total Requests</h5>
+			<hr>
+			<h1 style="text-align: center;padding: 10px">{{order_count}}</h1>
+		</div>
+	</div>
+</div>
+
+
+<br>
+</div>
+<br>
+
+<div class="row">
+	<div class="col-md">
+		<div class="card card-body">
+			<table class="table table-sm">
+				<tr>
+					<th>Application</th>
+					<th>Date Requested</th>
+					<th>Status</th>
+					<th>Note</th>
+					<th>File</th>
+				</tr>
+
+				{% for order in orders %}
+
+				<tr>
+					<td>{{order.product}}</td>
+					<td>{{order.date_created}}</td>
+					<td>{{order.status}}</td>
+					<td>{{order.note}}</td>
+					<td><a class="btn btn-sm btn-info" ">Download</a></td>
+				</tr>
+				{% endfor %}
+
+			</table>
+		</div>
+	</div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,35 @@
+{%  extends 'accounts/main.html' %}
+
+{% block content %}
+
+		<br>
+
+		<div class="row">
+			<div class="col-md">
+				<div class="card card-body">
+					<h5>Applications</h5>
+				</div>
+				<div class="card card-body">
+					<table class="table">
+						<tr>
+							<th>Name</th>
+							<th>Approval Required</th>
+							<th>Application Form</th>
+							
+						</tr>
+
+						{% for i in products %}
+							<tr>
+								<td>{{i.name}}</td>
+								<td>{{i.category}}</td>
+								<td><a class="btn btn-sm btn-info" ">Download</a></td>
+							</tr>
+						{% endfor %}
+						
+					</table>
+				</div>
+			</div>
+			
+		</div>
+
+{% endblock content %}
